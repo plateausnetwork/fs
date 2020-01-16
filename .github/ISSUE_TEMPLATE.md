@@ -5,7 +5,6 @@ Describe your issue here.
 ### Your environment
 
 * version of golang
-* version of blockchain
 * which linux distribution
 
 ### Steps to reproduce
