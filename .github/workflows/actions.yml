@@ -1,8 +1,7 @@
 on: [push]
-name: Test
+name: Build and Test
 jobs:
   test:
-    runs-on: self-hosted
     steps:
     - name: Golang install
       uses: actions/setup-go@v1
