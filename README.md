@@ -44,4 +44,8 @@ func myFunc() {
 
 ```
 
+## License
+
+For more details about our license model, please take a look at the [LICENSE](LICENSE) file.
+
 **2020**, Rhizom Platform.
