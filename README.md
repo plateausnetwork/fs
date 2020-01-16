@@ -18,10 +18,6 @@ git clone git@github.com:rhizomplatform/fs.git /your/directory/of/choice/rhizom
 cd /your/directory/of/choice/rhizom
 ```
 
-### Building
-
-To build, just run `go build`.
-
 ### Testing
 
 To run the tests, try `go test`.
