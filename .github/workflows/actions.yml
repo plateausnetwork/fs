@@ -2,6 +2,7 @@ on: [push]
 name: Build and Test
 jobs:
   test:
+    runs-on: ubuntu-18.04
     steps:
     - name: Golang install
       uses: actions/setup-go@v1
