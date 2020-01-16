@@ -26,8 +26,22 @@ To build, just run `go build`.
 
 To run the tests, try `go test`.
 
-### Running the code
+### Using as a library
 
-For a comprehensive guide on how to build and run your own private network, please check out this [wiki page](https://github.com/rhizomplatform/rhizom/wiki/Creating-a-Local-Private-Network).
+```go
+import (
+  "github.com/rhizomplatform/fs"
+)
+
+func myFunc() {
+  path := fs.Path{"my/directory/path/not/exists/something"}
+
+  // creates all directories that doesn't exists
+  if err := path.MkdirAll(); err != nil {
+    panic(err)
+  }
+}
+
+```
 
 **2020**, Rhizom Platform.
