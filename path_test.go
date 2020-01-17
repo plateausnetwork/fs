@@ -698,8 +698,7 @@ func createTreeCopyDirToDir(root string) error {
 		│	│	├── log
 		│	│	│   ├── a.c
 		│	│	│   ├── b.c
-		│	│	│   ├── e.c
-		│	│	│   ├── d.c
+		│	│	│   ├── c.c
 		------------------------
 		├── dirtopastetestdir
 		│   ├── dir1
@@ -730,9 +729,6 @@ func createTreeCopyDirToDir(root string) error {
 			}
 			defer file.Close()
 
-			if _, err := file.Write([]byte(uuid.New().String())); err != nil {
-				return err
-			}
 		} else {
 			if err := c.path.MkdirAll(); err != nil {
 				return err
@@ -812,6 +808,37 @@ func TestCreateAppendErr(t *testing.T) {
 
 			if _, err := fs.Append(path.String()); err != test.expected {
 				t.Errorf("Case %d, error testing open: expected '%v', received '%v'", i, test.expected, err)
+			}
+		}
+	})
+}
+
+func TestCount(t *testing.T) {
+	WithTempDir(func(root string) {
+		src := fs.Path(root).Join("src")
+
+		// create the source content
+		if err := createTreeCopyDirToDir(src.String()); err != nil {
+			t.Errorf("Error creating tree %v", err)
+		}
+
+		tests := []struct {
+			path     fs.Path
+			walkType fs.WalkType
+			expected uint64
+		}{
+
+			{path: src.Join("dir").Join("log"), walkType: fs.WalkFiles, expected: 3},
+			{path: src.Join("dir"), walkType: fs.WalkDirs, expected: 1},
+			{path: src.Join("dir"), walkType: fs.WalkBoth, expected: 4},
+			{path: src.Join("error").Join("pahtdoesnot exist"), walkType: fs.WalkFiles, expected: 0},
+		}
+
+		for i, test := range tests {
+			// received := test.path
+			result := test.path.Count(test.walkType)
+			if result != test.expected {
+				t.Errorf("Error in case %d, counting expected %d, received %d", i, test.expected, result)
 			}
 		}
 	})
