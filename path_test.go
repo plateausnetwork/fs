@@ -7,8 +7,6 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/google/uuid"
-
 	"github.com/rhizomplatform/fs"
 )
 
@@ -507,13 +505,13 @@ func TestCopyToPathFiles(t *testing.T) {
 		}{
 			{
 				source:      basePath.Join("first.txt"),
-				content:     []byte(uuid.New().String()),
+				content:     []byte("some text here"),
 				destination: basePath.Join("copydir/first.txt"),
 				expected:    nil,
 			},
 			{
 				source:      basePath.Join("second.txt"),
-				content:     []byte(uuid.New().String()),
+				content:     []byte("another content here"),
 				destination: basePath.Join("/copydir/second.txt"),
 				expected:    nil,
 			},
@@ -562,12 +560,12 @@ func TestCopyToPathFileToDir(t *testing.T) {
 		}{
 			{
 				source:      basePath.Join("a.txt"),
-				content:     []byte(uuid.New().String()),
+				content:     []byte("LoremIpsum"),
 				destination: basePath.Join("/copydir/"),
 			},
 			{
 				source:      basePath.Join("b.txt"),
-				content:     []byte(uuid.New().String()),
+				content:     []byte("imagine an uuid here"),
 				destination: basePath.Join("/anotheragain/"),
 			},
 		}
