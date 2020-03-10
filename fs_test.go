@@ -194,6 +194,24 @@ func TestOpen(t *testing.T) {
 	})
 }
 
+func TestBasenameFs(t *testing.T) {
+	tests := []struct {
+		path     string
+		expected string
+	}{
+		{path: "/foo", expected: "foo"},
+		{path: "foo.txt", expected: "foo.txt"},
+		{path: "/tao/euhaus/teste.go", expected: "teste.go"},
+	}
+
+	for i, test := range tests {
+		received := fs.Basename(test.path)
+		if received != test.expected {
+			t.Errorf("Case %d, error testing basename fs: expected '%v', received '%v'", i, test.expected, received)
+		}
+	}
+}
+
 func TestWrite(t *testing.T) {
 	WithTempDir(func(root string) {
 		src := fs.Path(root).Join("a.txt")

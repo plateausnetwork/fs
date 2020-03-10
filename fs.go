@@ -69,6 +69,11 @@ func Abs(path string) string {
 	return path
 }
 
+// Basename returns the name of the last element of the path
+func Basename(path string) string {
+	return Path(path).Basename()
+}
+
 // Clean returns the shortest path name equivalent to path
 func Clean(path string) string {
 	return Path(path).Clean().String()
