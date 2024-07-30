@@ -9,7 +9,7 @@ import (
 
 	"github.com/google/uuid"
 
-	"github.com/rhizomplatform/fs"
+	"github.com/plateausnetwork/fs"
 )
 
 // TempDirHandler is a handler that receives the path of a temporary

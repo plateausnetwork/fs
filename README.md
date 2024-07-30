@@ -14,7 +14,7 @@ To build from source, you will need the following prerequisites:
 First, clone the project:
 
 ```bash
-git clone git@github.com:rhizomplatform/fs.git /your/directory/of/choice/rhizom
+git clone git@github.com:plateausnetwork/fs.git /your/directory/of/choice/rhizom
 cd /your/directory/of/choice/rhizom
 ```
 
@@ -26,7 +26,7 @@ To run the tests, try `go test`.
 
 ```go
 import (
-  "github.com/rhizomplatform/fs"
+  "github.com/plateausnetwork/fs"
 )
 
 func myFunc() {

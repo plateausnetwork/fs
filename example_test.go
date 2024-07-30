@@ -3,7 +3,7 @@ package fs_test
 import (
 	"fmt"
 
-	"github.com/rhizomplatform/fs"
+	"github.com/plateausnetwork/fs"
 )
 
 func ExamplePath_joining() {

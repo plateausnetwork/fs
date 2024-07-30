@@ -1,4 +1,4 @@
-module github.com/rhizomplatform/fs
+module github.com/plateausnetwork/fs
 
 go 1.13
 

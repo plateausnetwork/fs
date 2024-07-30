@@ -7,7 +7,7 @@ import (
 	"syscall"
 	"testing"
 
-	"github.com/rhizomplatform/fs"
+	"github.com/plateausnetwork/fs"
 )
 
 func TestMkdir(t *testing.T) {
